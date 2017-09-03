@@ -12,7 +12,7 @@
 
 ## Factory function returning, for a given matrix, a list object
 ## containing the matrix, its cached inverse, and access functions.
-## No computattion here, only caching.
+## No computation here, only caching.
 
 makeCacheMatrix <- function(x = matrix()) {
     # data, additionally to x
@@ -20,7 +20,6 @@ makeCacheMatrix <- function(x = matrix()) {
         
     # setters (note: as we do not provide a setter for x, the original
     # matrix cannot change)
-    
     setInverse <- function(m) inverse <<- m
     
     # getters
