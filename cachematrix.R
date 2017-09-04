@@ -53,7 +53,9 @@ cacheSolve <- function(x, ...) {
 ## Test the above with a big matrix.
 ##
 
-test <- function() {
+testCaching <- function() {
+    message("TESTING THE CACHING")
+    message("-------------------")
     size <- 1500
     m <- matrix(sample.int(100, size*size, replace=TRUE), size, size)
     message("Original matrix")
@@ -95,6 +97,31 @@ test <- function() {
     # cached call
     message("3rd call")
     doit()
-    
-    "Test done"
+}
+
+testInverse <-function() {
+    message("TESTING THE INVERSION")
+    message("---------------------")
+
+    m <- matrix(c(1, 0, 5, 2, 1, 6, 3, 4, 0), 3, 3)
+
+    message("Original matrix:")
+    print(m)
+
+    cm <- makeCacheMatrix(m)
+    inverse <- cacheSolve(cm)
+
+    message("Inverse matrix:")
+    print(inverse)
+
+    shouldBe = matrix(c(-24, 20, -5, 18, -15, 4, 5, -4, 1), 3, 3)
+    difference = inverse -shouldBe
+    message("Difference:")
+    print(difference)
+}
+
+
+test <- function() {
+    testCaching()
+    testInverse()
 }
