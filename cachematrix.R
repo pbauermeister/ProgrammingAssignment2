@@ -118,6 +118,9 @@ testInverse <-function() {
     difference = inverse -shouldBe
     message("Difference:")
     print(difference)
+
+    message("Equal (under tolerance):")
+    print(all.equal(inverse, shouldBe))
 }
 
 
