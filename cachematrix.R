@@ -114,8 +114,8 @@ testInverse <-function() {
     message("Inverse matrix:")
     print(inverse)
 
-    shouldBe = matrix(c(-24, 20, -5, 18, -15, 4, 5, -4, 1), 3, 3)
-    difference = inverse -shouldBe
+    shouldBe <- matrix(c(-24, 20, -5, 18, -15, 4, 5, -4, 1), 3, 3)
+    difference <- inverse -shouldBe
     message("Difference:")
     print(difference) # hopefully small
 
